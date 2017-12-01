@@ -3,9 +3,8 @@
 Currently using nvim, zsh shell, and tmux configs. 
 
 TODO:
-vim -> nvim alias
-tmux fix
-zsh completion fix
-AG fzf
+alias's to make life easy
+ZSH | fish
+fzf
 neovim plugins
-shortcut learnings
+vimgolf | learn yo shit
