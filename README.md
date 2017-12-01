@@ -7,4 +7,4 @@ alias's to make life easy <br>
 ZSH | fish <br>
 fzf <br>
 neovim plugins <br>
-vimgolf | learn yo shit <br>
+vimgolf | learn yo stuff <br>
