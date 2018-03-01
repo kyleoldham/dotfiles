@@ -14,7 +14,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'iCyMind/NeoSolarized'
   Plug 'scrooloose/nerdcommenter'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-fugitive'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   let g:airline_theme='solarized'
