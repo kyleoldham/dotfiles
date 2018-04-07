@@ -38,10 +38,25 @@ nmap <Leader>t :NERDTreeToggle<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
 
+"Pasting genius if you're not about "*p
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
 "General VIM buffer rebinds
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 :nnoremap <C-X> :bdelete<CR>
+
+"Stop word wrapping except markdown.
+au FileType markdown setlocal wrap
 
 set expandtab         "tab to spaces
 set tabstop=2         "the width of a tab
