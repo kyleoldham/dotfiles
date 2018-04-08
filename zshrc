@@ -38,3 +38,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 # Source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Syntax Highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
