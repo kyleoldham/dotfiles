@@ -33,6 +33,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# jl will ls after autojumping to a directory
+function jl(){ j "$@" && ls; }
+
 # Makes suggestions visible
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
