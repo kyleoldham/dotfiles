@@ -31,6 +31,8 @@ plugins=(
   zsh-autosuggestions
 )
 
+source $ZSH/oh-my-zsh.sh
+
 # Makes suggestions visible
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
