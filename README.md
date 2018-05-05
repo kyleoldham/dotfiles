@@ -1,6 +1,7 @@
 # dotfiles
 
 Currently using nvim, and zsh shell.  
+dein for plugin managment
 Potentially switch to vim+fish in the future.  
 
 
@@ -9,8 +10,8 @@ autoload bashcompinit
 bashcompinit  
 
 
-### Run this to make silver searcher use ag:  
-complete -F _fzf_path_completion -o default -o bashdefault ag  
+### Run this to make silver searcher use rg:  
+complete -F _fzf_path_completion -o default -o bashdefault rg  
 
 
 ### If UpdateRemotePlugins b/c deoplete:  
