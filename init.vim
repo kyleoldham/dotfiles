@@ -1,63 +1,79 @@
-call plug#begin('~/.config/nvim/plugged')
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-  let g:deoplete#enable_at_startup = 1
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-  Plug 'rking/ag.vim'
-  Plug 'iCyMind/NeoSolarized'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  let g:airline_theme='solarized'
-call plug#end()
+if &compatible
+ set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-"airline settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-set laststatus=2
+if dein#load_state('~/.cache/dein')
+ call dein#begin('~/.cache/dein')
 
-set termguicolors
-set number
+ "Bread&Butter
+ call dein#add('~/.cache/dein')
+ call dein#add('cohama/lexima.vim')
+ call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+ "easymotion/vim-easymotion
+ "justinmk/vim-sneak
+ call dein#add('scrooloose/nerdcommenter')
+ call dein#add('benekastah/neomake')
+ call dein#add('scrooloose/nerdtree',
+      \{'on_toggle': 'NERDTreeToggle'})
 
+ "Visual
+ call dein#add('iCyMind/NeoSolarized')
+ call dein#add('tpope/vim-surround')
+ call dein#add('prettier/vim-prettier')
+ call dein#add('ctrlpvim/ctrlp.vim')
+
+ "YAML
+ call dein#add('vim-scripts/yaml.vim')
+ call dein#add('Yggdroot/indentLine')
+
+ call dein#end()
+ call dein#save_state()
+endif
+
+if dein#check_install()
+ call dein#install()
+endif
+
+filetype plugin indent on
 syntax enable
-set background=dark
-colorscheme NeoSolarized
+
+"nerdcommenter remap
+inoremap \c <C-o>:call NERDComment(0,"toggle")<C-m>
 
 "Beginning my journey into efficiency
-map <C-n> :NERDTreeToggle<CR>
-nmap <Leader>f :FZF<CR>
-nmap <Leader>t :NERDTreeToggle<CR>
-nmap <Leader>w :w<CR>
-nmap <Leader>b :CtrlPBuffer<CR>
+nmap <space>t :NERDTreeToggle<CR>
+nmap <space>w :w<CR>
+nmap <space>b :CtrlPBuffer<CR>
 
-"Pasting genius if you're not about "*p
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
+"FZF
+nmap <space>l :Lines<CR>
+nmap <space>s :FZF<CR>
+nmap <space>f :Files<CR>
 
 "General VIM buffer rebinds
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 :nnoremap <C-X> :bdelete<CR>
 
-"Stop word wrapping except markdown.
-au FileType markdown setlocal wrap
+"Tab cycles through deoplete options
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+syntax enable
+colorscheme NeoSolarized
+set background=dark
 set expandtab         "tab to spaces
 set tabstop=2         "the width of a tab
-set shiftwidth=2      "the width for indent
+set shiftwidth=2      "the width for indent<Paste>
+set number
+set termguicolors
+set laststatus=2
+set nowrap
+au FileType markdown setlocal wrap
+
+let g:deoplete#enable_at_startup=1
+let g:fzf_buffers_jump=1
+let g:lexima_enable_basic_rules=1  " AUTOCLOSE PAIRS
+let g:lexima_enable_newline_rules=1 " AUTOCLOSE PAIRS
