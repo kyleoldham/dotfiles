@@ -2,24 +2,24 @@ export ZSH=/Users/kxoj/.oh-my-zsh
 
 # Paths -> -U removes Dupes
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export GOPATH=$HOME/Code/go
-PATH=$PATH:$GOPATH/bin
+# Not sure why I have to set the gobin on this laptop but I do
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
 typeset -U path
 
 # Theme
 ZSH_THEME="robbyrussell"
-
-# j & jl
-#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-#function jl(){ j "$@" && ls; }
 
 # go fasd
 eval "$(fasd --init auto)"
 alias j='fasd_cd -d'
 alias v='f -e nvim'
 
+## thefuck
+#eval $(thefuck --alias)
+
 ### VAULT ###
-export VAULT_ADDR=https://mradvault.cloud.pge.com
 export PATH=$PATH:/Users/kxoj/Documents
 
 # Display red dots while completing
@@ -31,10 +31,7 @@ plugins=(
   zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
-
-# Makes suggestions visible
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -48,8 +45,9 @@ alias aws='aws --no-verify-ssl' #........
 alias c='clear'
 alias chr="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
 alias g='git'
-alias gb='git branch'
+alias ga='git add'
 alias gaa='git add .'
+alias gb='git branch'
 alias gbc='git checkout -b'
 alias gbd='git branch --delete'
 alias gcm='git commit --message'
@@ -63,8 +61,10 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
-source /Users/kxoj/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
+
+# Makes suggestions visible
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 # One of these three has to be at the bottom to avoid errors...
 export NVM_DIR="$HOME/.nvm"
