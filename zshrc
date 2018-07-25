@@ -19,7 +19,6 @@ alias j='fasd_cd -d'
 alias v='f -e nvim'
 
 ### VAULT ###
-export VAULT_ADDR=https://mradvault.cloud.pge.com
 export PATH=$PATH:/Users/kxoj/Documents
 
 # Display red dots while completing
