@@ -151,6 +151,7 @@ endfunction
 "Disable vim's JSON concealing
 let g:vim_json_syntax_conceal = 0
 
+let g:go_fmt_command = "goimports"
 let g:deoplete#enable_at_startup=1
 let g:fzf_buffers_jump=1
 let g:lexima_enable_basic_rules=1  " AUTOCLOSE PAIRS
