@@ -8,11 +8,15 @@ export GOBIN=$GOPATH/bin
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
 typeset -U path
 
+# go module support
+ export GO111MODULE=on
+ 
 # Theme
 ZSH_THEME="robbyrussell"
 
 # go fasd
 eval "$(fasd --init auto)"
+alias cat='bat'
 alias j='fasd_cd -d'
 alias v='f -e nvim'
 
