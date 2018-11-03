@@ -70,6 +70,12 @@ source $ZSH/oh-my-zsh.sh
 # Makes suggestions visible
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
+# Create and cd
+nd () {
+  mkdir "$1"
+  cd "$1"
+}
+
 # One of these three has to be at the bottom to avoid errors...
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
