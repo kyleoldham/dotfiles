@@ -85,3 +85,9 @@ complete -o nospace -C /Users/kxoj/Documents/vault vault
 
 # Syntax Highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kyle/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kyle/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kyle/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kyle/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
