@@ -19,6 +19,7 @@ eval "$(fasd --init auto)"
 alias cat='bat'
 alias j='fasd_cd -d'
 alias v='f -e nvim'
+alias r='grip README.md'
 
 ## thefuck
 #eval $(thefuck --alias)
@@ -51,6 +52,7 @@ alias chr="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
 alias g='git'
 alias ga='git add'
 alias gaa='git add .'
+alias gp='git pull'
 alias gb='git branch'
 alias gbc='git checkout -b'
 alias gbd='git branch --delete'
