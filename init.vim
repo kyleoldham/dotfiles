@@ -9,6 +9,10 @@ if dein#load_state('~/.cache/dein')
 
  "GoLangIsLife
  call dein#add('fatih/vim-go', { 'on_ft': ['go'] })
+ call dein#add('sebdah/vim-delve', { 'on_ft': ['go'] })
+ call dein#add('SirVer/ultisnips', { 'on_ft': ['go'] })
+ call dein#add('AndrewRadev/splitjoin.vim', { 'on_ft': ['go'] })
+
 
  "RustIsAlsoLife?
  call dein#add('rust-lang/rust.vim', { 'on_ft': ['rust'] })
@@ -51,6 +55,22 @@ endif
 filetype plugin indent on
 syntax enable
 
+" GOLANG
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+nmap <space>g :GoMetaLinter<CR>
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
 "nerdcommenter remap
 inoremap \c <C-o>:call NERDComment(0,"toggle")<C-m>
 
@@ -81,6 +101,15 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 let g:syntastic_go_checkers = ['gofmt']
+let g:go_fmt_command = "goimports"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_function_calls = 1
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
 
 "General VIM buffer rebinds
 :nnoremap <Tab> :bnext<CR>
