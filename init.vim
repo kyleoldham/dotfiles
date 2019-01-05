@@ -71,6 +71,9 @@ function! s:build_go_files()
   endif
 endfunction
 
+set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
 "nerdcommenter remap
 inoremap \c <C-o>:call NERDComment(0,"toggle")<C-m>
 
