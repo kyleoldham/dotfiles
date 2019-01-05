@@ -59,6 +59,11 @@ alias gbd='git branch --delete'
 alias gcm='git commit --message'
 alias gst='git status'
 
+nd () {
+  mkdir "$1"
+  cd "$1"
+}
+
 # I can move now
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
