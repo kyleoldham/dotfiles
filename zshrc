@@ -1,5 +1,5 @@
-export ZSH=/Users/kxoj/.oh-my-zsh
-
+export ZSH=/Users/$USER/.oh-my-zsh
+$USER = kyle
 # Paths -> -U removes Dupes
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # Not sure why I have to set the gobin on this laptop but I do
@@ -25,7 +25,7 @@ alias r='grip README.md'
 #eval $(thefuck --alias)
 
 ### VAULT ###
-export PATH=$PATH:/Users/kxoj/Documents
+export PATH=$PATH:/Users/$USER/Documents
 
 # Display red dots while completing
  COMPLETION_WAITING_DOTS="true"
@@ -88,7 +88,7 @@ export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/kxoj/Documents/vault vault
+complete -o nospace -C /Users/$user/Documents/vault vault
 
 # Syntax Highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
