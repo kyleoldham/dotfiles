@@ -59,9 +59,16 @@ alias gbd='git branch --delete'
 alias gcm='git commit --message'
 alias gst='git status'
 
+# New Directory
 nd () {
   mkdir "$1"
   cd "$1"
+}
+
+# Rebase a branch
+grom ()
+{
+  git fetch origin ${1:-master} && git rebase origin/${1:-master}
 }
 
 # I can move now
