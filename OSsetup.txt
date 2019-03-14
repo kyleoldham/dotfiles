@@ -1,0 +1,13 @@
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+defaults write com.apple.ActivityMonitor IconType -int 5
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean true
+defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
